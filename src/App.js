@@ -25,7 +25,7 @@ function App() {
       {/* <h1> Counter : {counter}</h1>
       <button onClick={()=>dispatch(increment())}>+</button>  
       <button onClick={()=>dispatch(decrement())}>-</button>  */}
-      <h1>My favorite color is {color}! </h1>
+      <h1>My favorite color is  {color}! </h1>
     
       <button style= {{color: "red"}} type= "radio" onClick={()=>dispatch(red())}>Red</button> 
       <button style={{color: "#4287f5"}} type= "radio" onClick={()=>dispatch(blue())}>Blue</button> 

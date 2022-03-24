@@ -1,7 +1,8 @@
-const colorReducer = (color = "red", action) =>{
+const colorReducer = (color = "unknown", action) =>{
     console.log("in color reducer")
     switch(action.type){
         case 'RED':
+            
             return "red" ;
         case 'BLUE':
             return color = "blue";
