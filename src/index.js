@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import counterReducer from './reducer/CounterReducer';
 import { Provider } from 'react-redux';
 
 import reportWebVitals from './reportWebVitals';
 import colorReducer from './reducer/ColorReducer';
+import ColorReducer2 from './reducer/ColorReducer2';
 
-const store = createStore(colorReducer);
+import myLogger from './middleware/myLogger'
+// const store = createStore(colorReducer);
+const store = createStore(ColorReducer2, applyMiddleware(myLogger));
 
 
 

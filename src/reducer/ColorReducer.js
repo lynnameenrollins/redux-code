@@ -16,6 +16,8 @@ const colorReducer = (color = "unknown", action) =>{
                 return "yellow" ;
         case 'BLACK':
                 return "black" ;
+        default:
+            return "??";
     }
 }
 
