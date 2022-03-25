@@ -20,10 +20,8 @@ const ColorReducer2 = (state = initalState, action)=>{
                     return ele !== value; 
                 });
             }
-            
             newState.color = arrayRemove(newState.color, action.payload);
             console.log("color(s) " + newState.color)
-            
             // newState.color = action.payload;
             break;
         default:

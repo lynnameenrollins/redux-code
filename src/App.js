@@ -46,7 +46,6 @@ function App(props) {
       })
       else 
         dispatch({
-          
           type: "REMOVE_COLOR",
           payload: e.target.value,
       })
@@ -59,7 +58,10 @@ function App(props) {
       <button onClick={()=>dispatch(increment())}>+</button>  
       <button onClick={()=>dispatch(decrement())}>-</button>  */}
       
-      <h1>My favorite color is {colVal}! </h1>
+      <h1>My favorite color is: </h1>
+      <ol>
+            {colVal.map((value => <li key = {value}>{value}</li>))}     
+      </ol>   
       
       {/* <button style= {{color: "red"}} type= "radio" onClick={()=>dispatch(red())}>Red</button> 
       <button style={{color: "#4287f5"}} type= "radio" onClick={()=>dispatch(blue())}>Blue</button> 
