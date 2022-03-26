@@ -27,31 +27,33 @@ function App(props) {
   const colVal = useSelector(state => state.color)
   
   useEffect(() =>{
-    console.log(props);
-  }, [])
+    console.log("in useEffect, colval: " + colVal);
+  })
 
-  
+  console.log("ColorVal (outside handleChange) " + colVal)
   const handleChange = (e) =>{
       // setColor(e.target.value);
-           
-      // color = [...e.target.selectedOptions].map(opt => opt.value);
-      console.log("Color values:" + e.target.value);
-      var isChecked = true; 
-      console.log("Is Checked " + e.target.checked)
-      if (e.target.checked)
+      // console.log("Color value:" + e.target.value);
+      // console.log("Is Checked " + e.target.checked)
+      
+      if (e.target.checked){
         dispatch({
-          
           type: "ADD_COLOR",
           payload: e.target.value,
       })
-      else 
+      // console.log("ColorVal (in add) " + colVal)
+      
+    }
+      else{
         dispatch({
           type: "REMOVE_COLOR",
           payload: e.target.value,
       })
-      
+      // console.log("ColorVal (in remove) " + colVal)
+    }
+    console.log("After if/else: ColorVal  " + colVal) 
   }
-  console.log("ColVal after handleChange " + colVal)
+
   return (
     <div className="App">
       {/* <h1> Counter : {counter}</h1>

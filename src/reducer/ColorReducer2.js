@@ -8,9 +8,9 @@ const ColorReducer2 = (state = initalState, action)=>{
     switch(action.type){
         case 'ADD_COLOR':
             console.log("In add color");
+          
             newState.color.push(action.payload);
             console.log("color(s) " + newState.color)
-            // return newState;
             break;
         case 'REMOVE_COLOR':
             console.log("In remove color");
@@ -22,7 +22,7 @@ const ColorReducer2 = (state = initalState, action)=>{
             }
             newState.color = arrayRemove(newState.color, action.payload);
             console.log("color(s) " + newState.color)
-            // newState.color = action.payload;
+            
             break;
         default:
             return newState;
