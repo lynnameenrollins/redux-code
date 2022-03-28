@@ -10,15 +10,21 @@ import reportWebVitals from './reportWebVitals';
 import colorReducer from './reducer/ColorReducer';
 import ColorReducer2 from './reducer/ColorReducer2';
 
-import myLogger from './middleware/myLogger'
-// const store = createStore(colorReducer);
-const store = createStore(ColorReducer2, applyMiddleware(myLogger));
+import {myLogger} from './middleware/myLogger';
+import {myLogger2} from './middleware/myLogger2';
+import logger from 'redux-logger';
+import postReducer from './reducer/postReducer';
+import Posts from './component/Posts';
 
+// const store = createStore(colorReducer);
+const store = createStore(ColorReducer2, applyMiddleware(myLogger, myLogger2, logger));
+// const store = createStore(postReducer);
 
 
 ReactDOM.render(
   <Provider store = {store}>
     <App />
+    {/* <Posts/> */}
   </Provider>,
   document.getElementById('root')
 );

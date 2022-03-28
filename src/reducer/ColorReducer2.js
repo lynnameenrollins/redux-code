@@ -8,22 +8,32 @@ const ColorReducer2 = (state = initalState, action)=>{
     switch(action.type){
         case 'ADD_COLOR':
             console.log("In add color");
-          
-            newState.color.push(action.payload);
-            console.log("color(s) " + newState.color)
-            break;
+            return{
+                newState, color:[newState.color, action.payload]
+            }
+            // newState.color.push(action.payload);
+            // console.log("color(s) " + newState.color)
+            // break;
+            
         case 'REMOVE_COLOR':
             console.log("In remove color");
-            function arrayRemove(arr, value) { 
+            let val = newState.color.flat(2);
+            // function arrayRemove(arr, value) { 
     
-                return arr.filter(function(ele){ 
-                    return ele !== value; 
-                });
+            //     return arr.filter(function(ele){ 
+            //         return ele !== value; 
+            //     });
+            // }
+            return{
+                newState,
+                color:[val.filter(value=>value!== action.payload)]
             }
-            newState.color = arrayRemove(newState.color, action.payload);
+            // newState.color = arrayRemove(newState.color, action.payload);
             console.log("color(s) " + newState.color)
             
-            break;
+            
+
+            // break;
         default:
             return newState;
     }

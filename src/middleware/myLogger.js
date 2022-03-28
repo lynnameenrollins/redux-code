@@ -1,4 +1,4 @@
-const myLogger = store => {
+export const myLogger = store => {
     return next =>{
         return action =>{
             console.log("Middleware Ran...")

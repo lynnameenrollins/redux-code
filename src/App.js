@@ -61,6 +61,7 @@ function App(props) {
       <button onClick={()=>dispatch(decrement())}>-</button>  */}
       
       <h1>My favorite color is: </h1>
+      <h1>{colVal}</h1>
       <ol>
             {colVal.map((value => <li key = {value}>{value}</li>))}     
       </ol>   
