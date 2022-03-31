@@ -24,16 +24,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 //   // other store enhancers if any
 // ));
 
-const devTools = composeWithDevTools(applyMiddleware(myLogger,myLogger2))
 
-const store = createStore(ColorReducer2, devTools);
-// const store = createStore(postReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <Provider store = {store}>
+  <ReactStrictMode>
     <App/>
-    {/* <Posts/> */}
-  </Provider>,
+   
+  </ReactStrictMode>,
   document.getElementById('root')
 );
 
