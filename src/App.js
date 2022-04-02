@@ -14,29 +14,36 @@ import {black} from './action/ColorAction'
 import {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import User from './User';
-
+//clean-ed up for testing
 function App(props) {
   const [user, setUser] = useState(null);
   const[error,setError] = useState('');
+  const[counter, setCounter] = useState(0);
 
-  window.fetch = jest.fn(() =>{
-    const user = {name:"Jack", email: 'jack@abc.com'}
-    return Promise.resolve({
-      json:() => Promise.resolve(user),
-    });
-  });
+  // window.fetch = jest.fn(() =>{
+  //   const user = {name:"Jack", email: 'jack@abc.com'}
+  //   return Promise.resolve({
+  //     json:() => Promise.resolve(user),
+  //   });
+  // });
   
-  useEffect(()=> {
-    fetch('https:jsonplaceholder.typicode.com/users/1')
-    .then((response) => response.json())
-    .then((user)=> setUser(user))
-    .catch((error) => setError(error.message));
-  }, [])
+  // useEffect(()=> {
+  //   fetch('https:jsonplaceholder.typicode.com/users/1')
+  //   .then((response) => response.json())
+  //   .then((user)=> setUser(user))
+  //   .catch((error) => setError(error.message));
+  // }, [])
 
-  if(error){
-    return <span>{error}</span>
+  // if(error){
+  //   return <span>{error}</span>
+  // }
+  
+  const increment = () => {
+    setCounter((val) => ++val)
   }
-
+  const decrement = () => {
+    setCounter((val) => --val)
+  }
   return (
     <div className="App">
         <h1>Hello world from React!</h1>
@@ -48,6 +55,9 @@ function App(props) {
           <li>Cat</li>
         </ul>
         {user ?<User user={user}/>: <span>Loading...</span>}
+        <h1 data-testid="counter">{counter}</h1>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
     </div>
   );
 }
